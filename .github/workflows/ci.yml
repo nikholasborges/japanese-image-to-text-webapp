@@ -26,6 +26,11 @@ jobs:
     - name: Install dependencies
       run: make install
 
+    - name: Create necessary directories
+      run: |
+        mkdir -p $GITHUB_WORKSPACE/src/logs
+        mkdir -p $GITHUB_WORKSPACE/src/web_app/uploads
+
     - name: Lint code
       run: make lint
 
