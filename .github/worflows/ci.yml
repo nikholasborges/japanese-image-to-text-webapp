@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - stage
+  pull_request:
+    branches:
+      - main
+      - stage
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.9
+
+    - name: Install dependencies
+      run: make install
+
+    - name: Lint code
+      run: make lint
+
+    - name: Run tests
+      run: make test
+
+    - name: Deploy (optional)
+      if: github.ref == 'refs/heads/main'
+      run: make deploy
+
+  clean_up:
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Clean up
+      run: make clean

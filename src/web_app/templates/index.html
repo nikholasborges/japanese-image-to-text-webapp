@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Text Extractor</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">
+            <img src="{{ url_for('static', filename='icon.png') }}" alt="Icon" class="title-icon">
+            <h1 class="title">Japanese Text Extractor</h1>
+        </div>
+        <div class="upload-container" id="upload-container">
+            Drag and drop an image here or click to upload
+            <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="file" style="display: none;">
+            </form>
+        </div>
+        <div class="image-preview-container">
+            <div class="message" id="message"></div>
+            <img id="image-preview" class="image-preview">
+        </div>
+        <div class="button-container" id="button-container">
+            <button id="crop-button" class="action-button">Crop Image</button>
+            <button id="finish-crop-button" class="action-button">Finish Crop</button>
+            <button id="process-button" class="action-button">Process Image</button>
+            <button id="clear-button" class="action-button">Clear</button>
+        </div>
+        <textarea id="result-input" class="result-input" readonly></textarea>
+        <div class="footer">
+            This app is currently in the prototype stage and works best with simple images, such as manga pages, and small sections of text.
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
