@@ -1,12 +1,7 @@
 import logging
-import os
+from src import settings
 
-# Set up logging
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-LOG_FOLDER = os.path.join(BASE_DIR, "/src/logs")
-os.makedirs(LOG_FOLDER, exist_ok=True)
-
-log_file = os.path.join(LOG_FOLDER, "app.log")
+log_file = f"{settings.BASE_DIR}/src/logs/app.log"
 
 logging.basicConfig(
     level=logging.INFO,

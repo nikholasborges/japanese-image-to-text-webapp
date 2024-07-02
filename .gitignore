@@ -30,6 +30,7 @@ env/
 *.tmp
 *.bak
 *.cache
+*.txt
 
 # Miscellaneous
 .DS_Store

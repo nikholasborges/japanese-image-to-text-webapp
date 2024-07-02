@@ -4,14 +4,10 @@ from flask import Flask, render_template, request, jsonify, send_from_directory,
 from src.web_app.utils import schedule_file_delete, clean_uploads
 from src.text_extractor.app import TextExtractor
 from src.logger import get_logger
+from src import settings
 
 flask_app = Flask(__name__)
-
-# Configure upload folder
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-flask_app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+flask_app.config["UPLOAD_FOLDER"] = f"{settings.BASE_DIR}/src/web_app/uploads"
 
 logger = get_logger(__name__)
 
