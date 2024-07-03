@@ -53,9 +53,9 @@ dev: ensure-poetry
 
 # Push Docker image to Docker Hub
 push-docker-image: ensure-poetry
-	echo $$DOCKERHUB_PASSWORD | docker login -u $$DOCKERHUB_USERNAME --password-stdin \
-    docker build -t $$DOCKERHUB_USERNAME/$$DOCKERHUB_REPO:latest -f ./Dockerfile . \
-    docker push $$DOCKERHUB_USERNAME/$$DOCKERHUB_REPO:latest
+	echo $$DOCKERHUB_PASSWORD | docker login -u $$DOCKERHUB_USERNAME --password-stdin; \
+    docker build -t $$DOCKERHUB_USERNAME/$$DOCKERHUB_REPO:latest -f ./Dockerfile .; \
+    docker push $$DOCKERHUB_USERNAME/$$DOCKERHUB_REPO:latest;
 
 # Clean up the project directory
 clean:
