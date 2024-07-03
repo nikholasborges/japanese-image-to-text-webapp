@@ -17,6 +17,7 @@ flask = "^3.0.3"
 apscheduler = "^3.10.4"
 imutils= "^0.5.4"
 pydantic-settings = "^2.3.4"
+gunicorn = "^22.0.0"
 
 
 [build-system]

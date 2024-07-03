@@ -119,8 +119,3 @@ def process_file(filename):
         return jsonify(
             success=False, message="Internal server error, please try again."
         )
-
-
-def run_web_app(debug=False):
-    flask_app.run(debug)
-    clean_uploads()
