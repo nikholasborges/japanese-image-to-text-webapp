@@ -2,7 +2,7 @@
 FROM python:3.11-slim
 
 # Set the working directory
-WORKDIR /app
+WORKDIR ./
 
 # Copy the requirements file and the Makefile into the container
 COPY pyproject.toml Makefile ./
