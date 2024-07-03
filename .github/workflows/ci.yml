@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -33,6 +35,9 @@ jobs:
     - name: Run tests
       run: make test
 
+    - name: List files
+      run: ls -la
+
     - name: Push to Docker Hub
       if: github.ref == 'refs/heads/master'
       env:
@@ -40,7 +45,7 @@ jobs:
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
       run: |
         echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-        docker build -t nikholasmartins/personal-development-repo:latest -f $GITHUB_WORKSPACE/Dockerfile .
+        docker build -t nikholasmartins/personal-development-repo:latest -f ./Dockerfile .
         docker push nikholasmartins/personal-development-repo:latest
 
   clean_up:
