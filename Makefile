@@ -1,4 +1,4 @@
-.PHONY: install run lint test clean dev ensure-poetry
+.PHONY: install run lint test clean dev push-docker-image ensure-poetry
 
 # Default goal
 .DEFAULT_GOAL := help
@@ -51,6 +51,12 @@ run: ensure-poetry
 dev: ensure-poetry
 	# Run the application
 	$(POETRY) run gunicorn -w 4 -b 0.0.0.0:8000 main:flask_app --reload
+
+# Push Docker image to Docker Hub
+push-docker-image:
+	echo $$DOCKERHUB_PASSWORD | docker login -u $$DOCKERHUB_USERNAME --password-stdin
+    docker build -t $$DOCKERHUB_USERNAME/$$DOCKERHUB_REPO:latest -f ./Dockerfile .
+    docker push $$DOCKERHUB_USERNAME/$$DOCKERHUB_REPO:latest
 
 # Clean up the project directory
 clean:
