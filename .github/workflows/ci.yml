@@ -23,7 +23,7 @@ jobs:
       with:
         python-version: 3.11.9
 
-    - name: Install dependencies
+    - name: Check dependencies
       run: make install
 
     - name: Create necessary directories
@@ -37,9 +37,14 @@ jobs:
     - name: Run tests
       run: make test
 
-    - name: Deploy (optional)
+    - name: Deploy to Docker Hub
       if: github.ref == 'refs/heads/main'
-      run: make deploy
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        docker build -t nikholasmartins/personal-development-repo:latest .
+        docker push nikholasmartins/personal-development-repo:latest
 
   clean_up:
     runs-on: ubuntu-latest
