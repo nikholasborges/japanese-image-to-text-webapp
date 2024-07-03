@@ -5,13 +5,13 @@ FROM python:3.11-slim
 WORKDIR /
 
 # Copy the requirements file and the Makefile into the container
-COPY pyproject.toml Makefile ./
+COPY pyproject.toml poetry.lock Makefile ./
 
 # Install Poetry
 RUN pip install poetry
 
-# Install dependencies using Makefile
-RUN make install
+# Install dependencies
+RUN poetry install --no-root
 
 # Copy the rest of the application code into the container
 COPY . .
@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 8000
 
 # Define the command to run the application using Makefile
-CMD ["make", "run"]
+CMD ["poetry", "run", "gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "main:flask_app"]

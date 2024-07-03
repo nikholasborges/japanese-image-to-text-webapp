@@ -29,24 +29,23 @@ jobs:
         mkdir -p $GITHUB_WORKSPACE/src/logs
         mkdir -p $GITHUB_WORKSPACE/src/web_app/uploads
 
+    - name: List files
+      run: ls -la
+
     - name: Lint code
       run: make lint
 
     - name: Run tests
       run: make test
 
-    - name: List files
-      run: ls -la
-
     - name: Push to Docker Hub
       if: github.ref == 'refs/heads/master'
       env:
+        DOCKERHUB_REPO: personal-development-repo
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-      run: |
-        echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-        docker build -t nikholasmartins/personal-development-repo:latest -f ./Dockerfile .
-        docker push nikholasmartins/personal-development-repo:latest
+      run: 
+        make push-docker-image
 
   clean_up:
     runs-on: ubuntu-latest
