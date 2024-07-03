@@ -1,0 +1,12 @@
+[flake8]
+max-line-length = 100
+ignore = E266, W503, E203
+exclude =
+    .git,
+    __pycache__,
+    build,
+    dist,
+    .venv
+per-file-ignores =
+    # Ignore F841 (local variable assigned but not used) in tests
+    tests/*: F841

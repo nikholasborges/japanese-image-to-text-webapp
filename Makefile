@@ -1,4 +1,4 @@
-.PHONY: install run lint test clean ensure-poetry
+.PHONY: install run lint test clean dev ensure-poetry
 
 # Default goal
 .DEFAULT_GOAL := help
@@ -35,10 +35,6 @@ help:
 install: ensure-poetry
 	$(POETRY) install
 
-# Run the application
-run: ensure-poetry
-	$(POETRY) run $(PYTHON) main.py
-
 # Lint the code
 lint: ensure-poetry
 	$(POETRY) run flake8 src/
@@ -46,6 +42,15 @@ lint: ensure-poetry
 # Run tests
 test: ensure-poetry
 	$(POETRY) run pytest
+
+# Run the application
+run: ensure-poetry
+	$(POETRY) run gunicorn -w 4 -b 0.0.0.0:8000 main:flask_app
+
+# Run app in dev mode
+dev: ensure-poetry
+	# Run the application
+	$(POETRY) run gunicorn -w 4 -b 0.0.0.0:8000 main:flask_app --reload
 
 # Clean up the project directory
 clean:

@@ -1,16 +1,13 @@
 import os
 import traceback
 from flask import Flask, render_template, request, jsonify, send_from_directory, url_for
-from src.web_app.utils import schedule_file_delete, clean_uploads
+from src.web_app.utils import schedule_file_delete
 from src.text_extractor.app import TextExtractor
 from src.logger import get_logger
+from src import settings
 
 flask_app = Flask(__name__)
-
-# Configure upload folder
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
-flask_app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+flask_app.config["UPLOAD_FOLDER"] = f"{settings.BASE_DIR}/src/web_app/uploads"
 
 logger = get_logger(__name__)
 
@@ -122,8 +119,3 @@ def process_file(filename):
         return jsonify(
             success=False, message="Internal server error, please try again."
         )
-
-
-def run_web_app(debug=False):
-    flask_app.run(debug)
-    clean_uploads()
