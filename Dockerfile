@@ -7,6 +7,12 @@ WORKDIR /src
 # Copy the requirements file and the Makefile into the container
 COPY pyproject.toml poetry.lock Makefile ./
 
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    libgl1-mesa-glx \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install Poetry
 RUN pip install poetry
 
