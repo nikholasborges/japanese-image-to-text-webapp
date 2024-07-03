@@ -1,7 +1,7 @@
 import os
 import traceback
 from flask import Flask, render_template, request, jsonify, send_from_directory, url_for
-from src.web_app.utils import schedule_file_delete, clean_uploads
+from src.web_app.utils import schedule_file_delete
 from src.text_extractor.app import TextExtractor
 from src.logger import get_logger
 from src import settings

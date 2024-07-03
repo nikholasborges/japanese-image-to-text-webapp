@@ -1,4 +1,5 @@
-from src.web_app.app import flask_app, clean_uploads
+from src.web_app.app import flask_app
+from src.web_app.utils import clean_uploads
 
 
 def main():
