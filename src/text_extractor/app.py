@@ -22,7 +22,6 @@ class TextExtractor:
         language=Constants.JPN_LANGUAGE,
         vertical_language=Constants.JPN_VERT_LANGUAGE,
         engine_mode=Constants.ENGINE_MODE,
-        save_text_in_file=True,
         debug=False,
     ):
         self.output_file_path = (
@@ -31,7 +30,6 @@ class TextExtractor:
         self.language = language
         self.vertical_language = vertical_language
         self.engine_mode = engine_mode
-        self.save_text_in_file = save_text_in_file
         self.debug = debug
 
     def load_image(self, input_file):
@@ -160,12 +158,10 @@ class TextExtractor:
             text_data = self.apply_ocr(cropped_images)
             normalized_text = self.normalize_text(text_data)
 
-            if self.save_text_in_file:
-                self.save_text_to_file(normalized_text)
-
             if self.debug:
                 images = {"Pre-processed Image": pre_processed_img}
                 self.display_images(images)
+                self.save_text_to_file(normalized_text)
 
             return normalized_text
 
