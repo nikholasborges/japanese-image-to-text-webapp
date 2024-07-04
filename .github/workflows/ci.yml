@@ -28,6 +28,7 @@ jobs:
       run: |
         mkdir -p $GITHUB_WORKSPACE/src/logs
         mkdir -p $GITHUB_WORKSPACE/src/web_app/uploads
+        mkdir -p $GITHUB_WORKSPACE/src/text_extractor/output
 
     - name: List files
       run: ls -la
