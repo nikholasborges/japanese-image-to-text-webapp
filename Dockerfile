@@ -2,7 +2,7 @@
 FROM python:3.11-slim-bookworm 
 
 # Set the working directory
-WORKDIR /src
+WORKDIR /
 
 # Copy the requirements file and the Makefile into the container
 COPY pyproject.toml poetry.lock Makefile ./
