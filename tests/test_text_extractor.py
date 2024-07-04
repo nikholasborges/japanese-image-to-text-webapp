@@ -4,6 +4,7 @@ import unittest
 from PIL import Image
 
 from unittest.mock import patch, mock_open, MagicMock
+from src import settings
 from src.text_extractor.app import TextExtractor
 from src.text_extractor.constants import Constants
 
@@ -111,7 +112,7 @@ class TestTextExtractor(unittest.TestCase):
         extractor.save_text_to_file("Sample text")
 
         mock_abspath.assert_called_once_with(
-            "./src/text_extractor/output/recognized.txt"
+            f"{settings.BASE_DIR}/src/text_extractor/output/recognized.txt"
         )
         mock_open_file.assert_called_once_with("fake/path/to/output.txt", "w")
         mock_open_file().write.assert_called_once_with("Sample text")
