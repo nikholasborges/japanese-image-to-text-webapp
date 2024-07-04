@@ -10,6 +10,7 @@ from PIL import Image
 
 from src.logger import get_logger
 from src.text_extractor.constants import Constants
+from src.settings import Settings
 
 logger = get_logger(__name__)
 
@@ -24,7 +25,9 @@ class TextExtractor:
         save_text_in_file=True,
         debug=False,
     ):
-        self.output_file_path = "./src/text_extractor/output/recognized.txt"
+        self.output_file_path = (
+            f"{Settings.BASE_DIR}/src/text_extractor/output/recognized.txt"
+        )
         self.language = language
         self.vertical_language = vertical_language
         self.engine_mode = engine_mode
