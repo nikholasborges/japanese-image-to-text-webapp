@@ -142,8 +142,7 @@ class TextExtractor:
         return normalized_text
 
     def save_text_to_file(self, text):
-        absolute_path = os.path.abspath(self.output_file_path)
-        with open(absolute_path, "w") as file:
+        with open(self.output_file_path, "w") as file:
             file.write(text)
 
     def display_images(self, images):

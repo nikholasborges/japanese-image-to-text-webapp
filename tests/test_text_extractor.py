@@ -104,17 +104,15 @@ class TestTextExtractor(unittest.TestCase):
         self.assertEqual(normalized_text, " This is a test \n Another line\n")
 
     @patch("src.text_extractor.app.open", new_callable=mock_open)
-    @patch("src.text_extractor.app.os.path.abspath")
-    def test_save_text_to_file(self, mock_abspath, mock_open_file):
-        mock_abspath.return_value = "fake/path/to/output.txt"
+    def test_save_text_to_file(self, mock_open_file):
 
         extractor = TextExtractor()
         extractor.save_text_to_file("Sample text")
 
-        mock_abspath.assert_called_once_with(
-            f"{settings.BASE_DIR}/src/text_extractor/output/recognized.txt"
+        mock_open_file.assert_called_once_with(
+            f"{settings.BASE_DIR}/src/text_extractor/output/recognized.txt", "w"
         )
-        mock_open_file.assert_called_once_with("fake/path/to/output.txt", "w")
+
         mock_open_file().write.assert_called_once_with("Sample text")
 
     @patch("src.text_extractor.app.TextExtractor.pre_process_image")
