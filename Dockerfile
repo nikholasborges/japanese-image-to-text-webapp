@@ -1,5 +1,5 @@
 # Use the official Python image from the Docker Hub
-FROM python:3.11-slim
+FROM python:3.11-slim-bookworm 
 
 # Set the working directory
 WORKDIR /src
@@ -7,11 +7,10 @@ WORKDIR /src
 # Copy the requirements file and the Makefile into the container
 COPY pyproject.toml poetry.lock Makefile ./
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpq-dev \
-    libgl1-mesa-glx \
-    && rm -rf /var/lib/apt/lists/*
+# Ensure that all the dependencies are up to date
+RUN apt-get update -y
+RUN apt-get upgrade -y
+RUN apt-get install -y curl
 
 # Install Poetry
 RUN pip install poetry
