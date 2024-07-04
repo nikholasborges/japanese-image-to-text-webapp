@@ -15,9 +15,9 @@ RUN apt-get install -y 'ffmpeg'
 RUN apt-get install -y 'libsm6'
 RUN apt-get install -y 'libxext6'
 RUN apt install libgl1-mesa-glx -y
-RUN apt install tesseract-ocr
-RUN apt install tesseract-ocr-jpn
-RUN apt install tesseract-ocr-jpn-vert
+RUN apt install tesseract-ocr -y
+RUN apt install tesseract-ocr-jpn -y
+RUN apt install tesseract-ocr-jpn-vert -y
 
 # Install Poetry
 RUN pip install poetry
