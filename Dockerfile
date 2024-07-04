@@ -17,9 +17,8 @@ RUN apt-get install -y 'libsm6'
 RUN apt-get install -y 'libxext6'
 RUN apt install libgl1-mesa-glx -y
 RUN apt install tesseract-ocr -y
-RUN cd /usr/share/tesseract-ocr/5/tessdata
-RUN wget https://github.com/tesseract-ocr/tessdata_best/raw/main/jpn.traineddata
-RUN wget https://github.com/tesseract-ocr/tessdata_best/raw/main/jpn_vert.traineddata
+RUN wget -P /usr/share/tesseract-ocr/5/tessdata https://github.com/tesseract-ocr/tessdata_best/raw/main/jpn.traineddata
+RUN wget -P /usr/share/tesseract-ocr/5/tessdata https://github.com/tesseract-ocr/tessdata_best/raw/main/jpn_vert.traineddata
 
 # Install Poetry
 RUN pip install poetry
