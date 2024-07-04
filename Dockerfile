@@ -11,6 +11,10 @@ COPY pyproject.toml poetry.lock Makefile ./
 RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install -y curl
+RUN apt-get install -y 'ffmpeg'
+RUN apt-get install -y 'libsm6'
+RUN apt-get install -y 'libxext6'
+RUN apt install libgl1-mesa-glx -y
 
 # Install Poetry
 RUN pip install poetry
