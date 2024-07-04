@@ -7,17 +7,17 @@ readme = "README.md"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.11"
-opencv-python = "^4.10.0.82"
-pytesseract = "^0.3.10"
-flake8 = "^7.1.0"
-pytest = "^8.2.2"
+python = "3.11"
+opencv-python = "4.10.0.82"
+pytesseract = "0.3.10"
+flake8 = "7.1.0"
+pytest = "8.2.2"
 numpy = "<2"
-flask = "^3.0.3"
-apscheduler = "^3.10.4"
-imutils= "^0.5.4"
-pydantic-settings = "^2.3.4"
-gunicorn = "^22.0.0"
+flask = "3.0.3"
+apscheduler = "3.10.4"
+imutils= "0.5.4"
+pydantic-settings = "2.3.4"
+gunicorn = "22.0.0"
 
 
 [build-system]
