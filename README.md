@@ -67,7 +67,7 @@ The GitHub Action workflow automates the CI/CD process for this project. It incl
 
 The workflow ensures code quality, runs tests, and deploys the image automatically.
 
-### Future Goals
+## Future Goals
 
 As the tool continues to evolve, Here's some of the future goals that's planned to be achieved in this project:
 
