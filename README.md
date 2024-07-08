@@ -11,6 +11,11 @@ Key features include:
 - Seamless CI/CD Pipelines: Implemented Continuous Integration and Continuous Deployment through GitHub Actions workflows guarantee robust, reliable, and automated deployments.
 - Containerization with Docker: The application is fully containerized, facilitating effortless deployment and scalability across various environments.
 
+## Demo Video
+
+[![Watch the demo video](https://github.com/nikholasborges/personal-image-host/blob/main/project%20thumb.png)](https://vimeo.com/manage/videos/980839427)
+
+
 ## Running Locally
 
 1. **Clone the Repository:**
