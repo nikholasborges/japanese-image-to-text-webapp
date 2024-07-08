@@ -61,4 +61,3 @@ The GitHub Action workflow automates the CI/CD process for this project. It incl
 - **Deploy to Docker Hub:** On pushes to the `main` branch, build and push the Docker image to Docker Hub using secrets for Docker credentials.
 
 The workflow ensures code quality, runs tests, and deploys the image automatically.
-```
