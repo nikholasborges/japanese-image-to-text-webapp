@@ -1,4 +1,3 @@
-```markdown
 # Japanese Image to Text Webapp
 
 ## Goal
