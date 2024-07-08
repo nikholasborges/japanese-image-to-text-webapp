@@ -11,7 +11,7 @@ Key features include:
 - Seamless CI/CD Pipelines: Implemented Continuous Integration and Continuous Deployment through GitHub Actions workflows guarantee robust, reliable, and automated deployments.
 - Containerization with Docker: The application is fully containerized, facilitating effortless deployment and scalability across various environments.
 
-## Demo Video
+## Click to watch the demo video
 
 [![Watch the demo video](https://github.com/nikholasborges/personal-image-host/blob/main/project%20thumb.png)](https://vimeo.com/manage/videos/980839427)
 
@@ -66,3 +66,12 @@ The GitHub Action workflow automates the CI/CD process for this project. It incl
 - **Deploy to Docker Hub:** On pushes to the `main` branch, build and push the Docker image to Docker Hub using secrets for Docker credentials.
 
 The workflow ensures code quality, runs tests, and deploys the image automatically.
+
+## Future Goals
+
+As the tool continues to evolve, Here's some of the future goals that's planned to be achieved in this project:
+
+- **Enhanced OCR Options:** integrate more OCR options to improve Japanese text detection, ensuring even greater accuracy and versatility.
+- **Improved Vertical Text Accuracy:** better train the Japanese-vert data, we aim to significantly enhance the accuracy of vertical text recognition.
+- **Login Sessions:** work on adding a login session feature to keep your recently extracted texts and images in history, making it easier to track and revisit your work.
+- **Character Cherry-Picking:** A new feature to allow users to cherry-pick specific characters from the extracted text, enabling quick and efficient lookups in dictionaries.
