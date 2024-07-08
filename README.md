@@ -72,6 +72,6 @@ The workflow ensures code quality, runs tests, and deploys the image automatical
 As the tool continues to evolve, Here's some of the future goals that's planned to be achieved in this project:
 
 - **Enhanced OCR Options:** integrate more OCR options to improve Japanese text detection, ensuring even greater accuracy and versatility.
-- **Improved Vertical Text Accuracy:** better train the Japanese-vert data, we aim to significantly enhance the accuracy of vertical text recognition.
-- **Login Sessions:** work on adding a login session feature to keep your recently extracted texts and images in history, making it easier to track and revisit your work.
-- **Character Cherry-Picking:** A new feature to allow users to cherry-pick specific characters from the extracted text, enabling quick and efficient lookups in dictionaries.
+- **Improved Vertical Text Accuracy:** better train the Japanese-vert data, the aim is to significantly enhance the accuracy of vertical text recognition.
+- **Login Sessions:** work on adding a login session feature to keep your recently extracted texts and images in history, making it easier to track and revisit your extracted texts.
+- **Character Cherry-Picking:** A new feature to allow users to pick specific characters from the extracted text, enabling quick and efficient lookups in dictionaries.
